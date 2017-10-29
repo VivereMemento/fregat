@@ -1,0 +1,118 @@
+.products {
+	margin-top: 20px;
+
+	&__list {
+		font-size: 0;
+	}
+
+	&__item {
+		display: inline-block;
+		width: 20%;
+		position: relative;
+
+		&:first-child .products__item-content {
+			border-left: none;
+		}
+
+		&:last-child {
+			& .products__img-wrap:after {
+				background: transparent;
+			}
+		}
+
+		@include laptop {
+			width: 33.3%;
+			margin-bottom: 20px;
+
+			&:first-child .products__item-content {
+				border-left: 1px solid $gray-light;
+			}
+		}
+
+		@include  netbook {
+			width: 50%;
+
+			&:nth-child(even) .products__item-content {
+				border-left: 1px solid $gray-light;
+			}
+
+			&:nth-child(odd) .products__item-content {
+				border-left: none;
+			}
+		}
+
+		&-content {
+			display: flex;
+			flex-wrap: wrap;
+			padding-right: 30px;
+			padding-left: 20px;
+			padding-bottom: 40px;
+			border-left: 1px solid $gray-light;
+			position: relative;
+		}
+	}
+
+	&__img-wrap {
+		width: 100%;
+		height: 255px;
+		max-width: 230px;
+		max-height: 230px;
+		margin: auto;
+		margin-bottom: 20px;
+		border-radius: 50%;
+		border: 1px solid #c9d2d7;
+		position: relative;
+
+
+
+		&:after {
+			display: block;
+			content: '';
+			width: 95%;
+			height: 95%;
+			background: #c9d2d7;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+	}
+
+	&__img {
+		max-width: 95%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		z-index: 1;
+
+		&_left {
+			max-width: 100%;
+			left: -17px;
+		}
+	}
+
+	&__title {
+		display: block;
+		height: 145px;
+		font-size: 28px;
+		line-height: 30px;
+		font-weight: 700;
+		color: $black;
+	}
+
+	&__text {
+		display: block;
+		font-size: 16px;
+	}
+
+	&__btn {
+		position: absolute;
+		bottom: 0;
+	}
+}

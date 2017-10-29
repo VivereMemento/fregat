@@ -1,0 +1,90 @@
+
+//- ************************************************************ //
+//-                     COMMON MIXINS
+//- ************************************************************ //
+
+//- ----------- btn -------------- //
+
+mixin btn-up
+	.btn-up
+		.btn(href='#') Вверх
+//- ----------- logo -------------- //
+
+mixin logo(text, src, mods)
+	div(class="logo " + ((mods === false) ? "" : mods))
+		a.logo__link(href="#")
+			img.logo__img(src="assets/img/" + src)
+			.logo__text=text
+
+//- ----------- checkbox -------------- //
+
+mixin checkbox(text)
+	label.checkbox
+		input.checkbox__input(name="location" type="radio")
+		.checkbox__elem
+		.checkbox__text= text
+
+//- ----------- menu -------------- //
+
+mixin menu(array, active, mods)
+	ul(class="menu__list" + mods)
+		each item in array
+			li(class="menu__item" + (item === active ? " active" : ""))
+				a(class="menu__link" href="#")=item
+
+//- ----------- slideshow -------------- //
+
+mixin slideshow(array, id)
+	.slideshow__display
+		ul(id="" + (id !== "") ? id : "").slideshow__list
+			each item in array
+				li.slideshow__item.fade
+					img.slideshow__img(src="" + item.url alt="slide")
+					if array == wallProduct
+						.description.wall__description_mods
+							.description-text #{item.text}
+							.description-price(class="" + ((item.sale !== "") ? 'description-price_color' + '' : '') data-sale="" + item.sale) #{item.price}  
+		div.dots
+			span(class="dot")
+			span(class="dot")
+			span(class="dot")
+			span(class="dot")
+
+//- ************************************************************ //
+//-                     PRIVATE MIXINS
+//- ************************************************************ // 
+
+//- ----------- navigation second floor -------------- //
+
+
+mixin nav-floors(array)
+	ul(class="nav__secondfloor-list")
+		each item in array
+			li(class="nav__secondfloor-item")
+				a(class="nav__secondfloor-link" href="" + item.href ) #{item.text}
+
+//- ----------- banner slider -------------- //
+mixin slider
+	.slider
+		-
+			var slides = [
+				{text: 'Колеса и ролики для тележек Произведено в Украине', src: './assets/img/banner-big-bg.jpg', href: '#'},
+				{text: 'Колеса и ролики для тележек Произведено в Украине', src: './assets/img/banner-small-1.jpg', href: '#'},
+				{text: 'Колеса и ролики для тележек Произведено в Украине', src: './assets/img/banner-small-2.jpg', href: '#'}
+			];
+
+		.slider__display
+			ul.slider__list
+				each slide in slides
+					li.slider__item
+						figure.slider__img-wrap
+							img.slider__img(src='' + slide.src)
+
+						.slider__title
+							span #{slide.text}
+							a.btn.btn_color(href='' + slide.href) Перейти
+
+		div.dots
+			span(class="dot")
+			span(class="dot")
+			span(class="dot")

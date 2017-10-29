@@ -1,0 +1,130 @@
+.banner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	&__big {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		width: 67.6%;
+		background: $yellow;
+		position: relative;
+
+		@include laptop {
+			width: 100%;
+		}
+
+		@include tablets {
+			display: none;
+		}
+
+		&:after {
+			display: block;
+			content: '';
+			width: 30%;
+			height: 100%;
+			background: url(../img/banner-big-wheel.png) no-repeat center;
+			background-size: contain;
+			position: absolute;
+			top: 0;
+			left: 50px;
+		}
+
+		&-img {
+			width: 100%;
+
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		&-title {
+			width: 60%;
+			padding: 20px 0;
+			font: 700 41px/43px $RC;
+			color: #000;
+
+			& span {
+				display: block;
+			}
+		}
+	}
+
+	&__small-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 31%;
+
+		@include laptop {
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		@include tablets {
+			display: none;
+		}
+	}
+
+	&__small {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		width: 100%;
+		margin-bottom: 15px;
+		background: $yellow;
+		position: relative;
+
+		@include laptop {
+			width: 49.5%;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:after {
+			display: block;
+			content: '';
+			width: 30%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			position: absolute;
+			top: 0;
+			left: 10px;
+		}
+
+		&_img-man:after {
+			background-image: url(../img/banner-small-man.png);
+		}
+
+		&_img-wheel:after {
+			background-image: url(../img/banner-small-wheel.png);
+		}
+
+		&-img {
+			width: 100%;
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		&-title {
+			padding: 15px 0;
+			width: 64%;
+			font: 700 20px/22px $RC;
+			color: #000;
+
+			& span {
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

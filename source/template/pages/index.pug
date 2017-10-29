@@ -1,0 +1,83 @@
+extends ../_template
+
+block variables
+	- var title = 'Home'
+
+block content
+	main.main
+		section.banner
+			+slider
+			.banner__big
+				figure.banner__big-img
+					img(src='./assets/img/banner-big-bg.jpg')
+
+				.banner__big-title
+					span Колеса и ролики для тележек Произведено в Украине
+					a.btn.btn_color(href='#') Перейти
+			.banner__small-wrap
+				.banner__small.banner__small_img-man
+					figure.banner__small-img
+						img(src='./assets/img/banner-small-1.jpg')
+					.banner__small-title
+						span Колеса и ролики для тележек Произведено в Украине
+						a.btn.btn_color(href='#') Перейти
+				.banner__small.banner__small_img-wheel
+					figure.banner__small-img
+						img(src='./assets/img/banner-small-2.jpg')
+					.banner__small-title
+						span Колеса и ролики для тележек Произведено в Украине
+						a.btn.btn_color(href='#') Перейти
+
+		section.products
+			.title
+				| Товары и услуги
+			-
+				var items = [
+					{title: 'Покрытие полиуретаном', href: '#', src: 'product-1.png', mods: ''},
+					{title: 'Запчасти к БелАЗам', href: '#', src: 'product-2.png', mods: ''},
+					{title: 'Роликовые конвееры и элементы', href: '#', src: 'product-3.png', mods: ''},
+					{title: 'Уплотнительные шнуры и вертикальная продукция для шин', href: '#', src: 'product-4.png', mods: ''},
+					{title: 'Силиконоые уплотнения', href: '#', src: 'product-5.png', mods: ' products__img_left'}
+				];
+			ul.products__list
+				each item in items
+					li.products__item
+						.products__img-wrap
+							img(class='products__img' + item.mods src='./assets/img/' + item.src)
+						.products__item-content
+							span.products__title #{item.title}
+							span.products__text
+								| Наше предприятие принимает на восстановление валы и колеса покрытые резиной или полиуретаном.
+							.products__btn
+								a.btn(href='' + item.href) Детальнее
+
+		section.news
+			.title
+				| Новости
+				a.btn.btn_margin(href="#") Все новости
+
+			-
+				var news = [
+					{title: 'Колеса сделаны в Украине и фото самих колес с лого Фрегат', src: 'news-1.jpg', href: '#'},
+					{title: 'Колеса сделаны в Украине и фото самих колес с лого Фрегат', src: 'news-1.jpg', href: '#'},
+					{title: 'Колеса сделаны в Украине и фото самих колес с лого Фрегат', src: 'news-1.jpg', href: '#'},
+					{title: 'Колеса сделаны в Украине и фото самих колес с лого Фрегат', src: 'news-1.jpg', href: '#'}
+				]
+
+			ul.news__list
+				each newsItem in news
+					li.news__item
+						figure.news__img-wrap
+							.news__img
+								img(src='./assets/img/' + newsItem.src)
+							.news__data
+								.news__data-date
+									span 16.08.2017
+								.news__data-time
+									span 17:32
+							figcaption.news__desc
+								.news__title #{newsItem.title}
+								.news__text
+									| Акционные цены на аппаратные ролик диаметром 50мм (с индексом "СК" в конце кода). Ознакомится можно здесь...
+							.news__btn
+								a.btn(href='' + newsItem.href) Читать

@@ -1,0 +1,105 @@
+.news {
+	margin-top: 30px;
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15px;
+	}
+
+	&__item {
+		width: 24%;
+		padding: 20px;
+		padding-bottom: 25px;
+		border: 1px solid #c9d2d7;
+		position: relative;
+
+		@include laptop {
+			width: 32%;
+		}
+
+		@include netbook {
+			width: 49%;
+		}
+
+		&:last-child {
+			@include laptop {
+				display: none;
+			}
+		}
+
+		&:nth-child(3) {
+			@include netbook {
+				display: none;
+			}
+		}
+	}
+
+	&__img {
+		display: inline-block;
+		vertical-align: bottom;
+		width: 68px;
+		height: 68px;
+	}
+
+	&__data {
+		display: inline-block;
+		margin-left: 15px;
+
+		&-date {
+			margin-bottom: 5px;
+		}
+
+		&-date,
+		&-time {
+			font-size: 12px;
+			font-weight: 300;
+			text-transform: uppercase;
+
+			&:before {
+				display: inline-block;
+				content: '';
+				width: 16px;
+				height: 16px;
+				margin-right: 5px;
+				vertical-align: bottom;
+			}
+		}
+
+		&-date:before {
+			background: url(../img/calendar.svg) no-repeat center;
+			background-size: contain;
+		}
+
+		&-time:before {
+			background: url(../img/time.svg) no-repeat center;
+			background-size: contain;
+		}
+	}
+
+	&__desc {
+		padding-bottom: 40px;
+	}
+
+	&__title {
+		margin-top: 10px;
+		font-size: 26px;
+		font-weight: 400;
+		color: #000;
+	}
+
+	&__text {
+		margin-top: 15px;
+		line-height: 25px;
+	}
+
+	&__btn {
+		position: absolute;
+		bottom: 25px;
+		left: 20px;
+	}
+
+	& .btn_margin {
+		margin-left: 20px;
+	}
+}
